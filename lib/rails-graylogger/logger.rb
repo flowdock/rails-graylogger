@@ -1,4 +1,4 @@
-module Graylog2Rails
+module RailsGraylogger
   class Logger
     FIELD_KEY_REGEXP = /^[\w\.\-]*$/
 
@@ -49,13 +49,13 @@ module Graylog2Rails
     end
 
     def notify!(method, payload)
-      message = Graylog2Rails::Message.new({
+      message = RailsGraylogger::Message.new({
         level: "GELF::Levels::#{method.upcase}".constantize,
         short_message: payload.delete(:short_message)
       })
       message.process_extra_fields(payload)
       message.tags = self.class.request_tags.join(",") unless self.class.request_tags.blank?
-      Graylog2Rails::Notifier.notify!(message.to_hash)
+      RailsGraylogger::Notifier.notify!(message.to_hash)
     end
   end
 end

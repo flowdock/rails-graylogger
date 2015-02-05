@@ -1,4 +1,4 @@
-module Graylog2Rails
+module RailsGraylogger
   class Notifier
     class << self
       def notify!(gelf_message)

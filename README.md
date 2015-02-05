@@ -1,13 +1,13 @@
-# graylog2-rails
+# rails-graylogger
 Rails logs to Graylog2
 
 # Configuring Middleware
 Add the following to config/application.rb:
 
 ```
-config.middleware.insert_before Rack::Runtime, Graylog2Rails::Middleware
+config.middleware.insert_before Rack::Runtime, RailsGraylogger::Middleware
 config.after_initialize do
-  config.logger = Rails.logger = Graylog2Rails::Logger.new(Rails.logger)
+  config.logger = Rails.logger = RailsGraylogger::Logger.new(Rails.logger)
 end
 ```
 

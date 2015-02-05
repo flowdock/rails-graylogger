@@ -1,4 +1,4 @@
-module Graylog2Rails
+module RailsGraylogger
   class Message
     FIELD_KEY_REGEXP = /^[\w\.\-]*$/
 

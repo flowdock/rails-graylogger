@@ -1,11 +1,11 @@
-module Graylog2Rails
+module RailsGraylogger
   class Middleware
     def initialize(app)
       @app = app
     end
 
     def call(env)
-      Graylog2Rails::Logger.initialize_log_buffer
+      RailsGraylogger::Logger.initialize_log_buffer
       logger = Rails.logger
       request = Rack::Request.new(env)
       RequestStore.store[:ipaddress] = request.ip

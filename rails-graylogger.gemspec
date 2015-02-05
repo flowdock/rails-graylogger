@@ -1,13 +1,13 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/graylog2-rails/version', __FILE__)
+require File.expand_path('../lib/rails-graylogger/version', __FILE__)
 
 Gem::Specification.new do |s|
-  s.name        = "graylog2-rails"
-  s.version     = Graylog2Rails::VERSION
+  s.name        = "rails-graylogger"
+  s.version     = RailsGraylogger::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Tuomas Silen"]
   s.email       = ["tuomas@flowdock.com"]
-  s.homepage    = "https://github.com/flowdock/graylog2-rails"
+  s.homepage    = "https://github.com/flowdock/rails-graylogger"
   s.summary     = "Push Rails logs also to Graylog2"
   s.description = s.summary
 

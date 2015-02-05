@@ -1,7 +1,0 @@
-require 'gelf'
-require 'request_store'
-require 'graylog2-rails/middleware.rb'
-require 'graylog2-rails/notifier.rb'
-require 'graylog2-rails/logger.rb'
-require 'graylog2-rails/message.rb'
-require 'graylog2-rails/log_subscriber.rb'

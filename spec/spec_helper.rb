@@ -2,7 +2,7 @@ ENV["RAILS_ENV"] = "test"
 require "active_support"
 require "active_support/inflector"
 require "active_support/core_ext"
-require File.expand_path("../../lib/graylog2-rails", __FILE__)
+require File.expand_path("../../lib/rails-graylogger", __FILE__)
 
 #require "rspec/rails"
 

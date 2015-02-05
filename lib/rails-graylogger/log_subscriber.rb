@@ -1,4 +1,4 @@
-module Graylog2Rails
+module RailsGraylogger
   class LogSubscriber < ::ActiveSupport::LogSubscriber
 
     def process_action(event)
@@ -8,18 +8,18 @@ module Graylog2Rails
       payload[:duration] = event.duration.round
       payload[:status] = status_from_exception(payload[:exception]) unless payload[:status].present?
 
-      message = Graylog2Rails::Message.from_event_payload(payload)
-      message.tags = Graylog2Rails::Logger.request_tags.join(",")
+      message = RailsGraylogger::Message.from_event_payload(payload)
+      message.tags = RailsGraylogger::Logger.request_tags.join(",")
       message.full_message = buffered_messages
 
-      Graylog2Rails::Notifier.notify!(message.to_hash)
+      RailsGraylogger::Notifier.notify!(message.to_hash)
     rescue => ex
-      Rails.logger.error "Exception in Graylog2Logger: #{ex.class}: #{ex.message}"
+      Rails.logger.error "Exception in RailsGraylogger: #{ex.class}: #{ex.message}"
     end
 
     def buffered_messages
-      unless Graylog2Rails::Logger.request_buffer.blank?
-        Graylog2Rails::Logger.request_buffer.map{ |item| item[:short_message] unless item[:short_message].blank? }.compact.join("\n")
+      unless RailsGraylogger::Logger.request_buffer.blank?
+        RailsGraylogger::Logger.request_buffer.map{ |item| item[:short_message] unless item[:short_message].blank? }.compact.join("\n")
       else
         []
       end
@@ -34,4 +34,4 @@ module Graylog2Rails
   end
 end
 
-Graylog2Rails::LogSubscriber.attach_to :action_controller
+RailsGraylogger::LogSubscriber.attach_to :action_controller
