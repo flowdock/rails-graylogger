@@ -34,9 +34,7 @@ module RailsGraylogger
           hash = { short_message: args[0] }
         else
           return if args.blank?
-          hash = {}
-          args.compact.each { |arg| hash.merge!(arg) }
-          hash = { short_message: hash.inspect }
+          hash = { short_message: args.compact.map(&:to_s).join("\n") }
         end
 
         unless self.class.request_buffer.nil?
