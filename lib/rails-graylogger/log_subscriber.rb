@@ -9,7 +9,7 @@ module RailsGraylogger
       payload[:status] = status_from_exception(payload[:exception]) unless payload[:status].present?
 
       message = RailsGraylogger::Message.from_event_payload(payload)
-      message.tags = RailsGraylogger::Logger.request_tags.join(",")
+      message.tags = RailsGraylogger::Logger.request_tags
       message.full_message = buffered_messages
 
       RailsGraylogger::Notifier.notify!(message.to_hash)

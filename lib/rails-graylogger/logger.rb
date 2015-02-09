@@ -52,7 +52,7 @@ module RailsGraylogger
         short_message: payload.delete(:short_message)
       })
       message.process_extra_fields(payload)
-      message.tags = self.class.request_tags.join(",") unless self.class.request_tags.blank?
+      message.tags = self.class.request_tags unless self.class.request_tags.blank?
       RailsGraylogger::Notifier.notify!(message.to_hash)
     end
   end

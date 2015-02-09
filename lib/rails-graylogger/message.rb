@@ -26,8 +26,8 @@ module RailsGraylogger
     end
 
     def tags=(tags)
-      raise ArgumentError.new("Not a string: #{tags.inspect}") unless tags.is_a?(String)
-      self.extra_fields[:_tags] = tags
+      raise ArgumentError.new("Not an array: #{tags.inspect}") unless tags.is_a?(Array)
+      self.extra_fields[:_tags] = tags.join(" ")
     end
 
     def to_hash

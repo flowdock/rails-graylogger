@@ -12,7 +12,7 @@ describe RailsGraylogger::Logger do
   end
 
   it "handles tagged logging with nested tags" do
-    expect(RailsGraylogger::Notifier).to receive(:notify!).with(level: GELF::Levels::INFO, short_message: "Test", _tags: "Foo,Bar").once
+    expect(RailsGraylogger::Notifier).to receive(:notify!).with(level: GELF::Levels::INFO, short_message: "Test", _tags: "Foo Bar").once
     @logger.tagged("Foo") do
       @logger.tagged("Bar") do
         @logger.info("Test")
