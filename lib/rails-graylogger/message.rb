@@ -62,7 +62,7 @@ module RailsGraylogger
     end
 
     def level_from_status(status)
-      status < 400 ? GELF::Levels::INFO : GELF::Levels::ALERT
+      status < 400 ? GELF::Levels::INFO : GELF::Levels::ERROR
     end
 
     def process_exception_data(exception)
