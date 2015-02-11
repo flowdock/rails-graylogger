@@ -1,3 +1,3 @@
-class RailsGraylogger
-  VERSION = '1.0.0'
+module RailsGraylogger
+  VERSION = '0.1.0'
 end
