@@ -1,3 +1,11 @@
+PATH
+  remote: .
+  specs:
+    rails-graylogger (0.1.0)
+      activesupport (~> 4)
+      gelf (~> 1.4.0)
+      request_store (~> 1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -13,6 +21,7 @@ GEM
     i18n (0.7.0)
     json (1.8.2)
     minitest (5.5.1)
+    rake (10.4.2)
     request_store (1.1.0)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
@@ -34,7 +43,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport (~> 4)
-  gelf (~> 1.4)
-  request_store
-  rspec (~> 3.0)
+  rails-graylogger!
+  rake
+  rspec (~> 3)

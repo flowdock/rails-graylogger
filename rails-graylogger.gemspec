@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'gelf', '~> 1.4.0'
   s.add_dependency 'activesupport', '~> 4'
+  s.add_dependency 'request_store', '~> 1.0'
 
   s.add_development_dependency 'rspec', '~> 3'
   s.add_development_dependency 'rake'
