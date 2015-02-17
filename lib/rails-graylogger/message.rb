@@ -40,7 +40,7 @@ module RailsGraylogger
     end
 
     def process_extra_fields(payload)
-      process_exception_data(payload.delete(:exception)) if payload[:exception]
+      process_exception_data(payload.delete(:exception))
 
       payload.each do |key, value|
         @extra_fields["_#{key}"] = formatted_value(value) if valid_key?(key)
@@ -66,9 +66,9 @@ module RailsGraylogger
     end
 
     def process_exception_data(exception)
-      exception.each do |key, value|
-        @extra_fields["_exception_#{key}"] = value.to_s if valid_key?(key)
-      end
+      return unless exception.is_a?(Array)
+      @extra_fields["_exception_class"] = exception.first.to_s
+      @extra_fields["_exception_message"] = exception.last.to_s
     end
   end
 end
