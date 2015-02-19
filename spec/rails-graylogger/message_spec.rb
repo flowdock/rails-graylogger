@@ -20,5 +20,11 @@ describe RailsGraylogger::Message do
       @msg.process_extra_fields({ test: { foo: "bar" } })
       expect(@msg.extra_fields).to eq({ "_test" => "{:foo=>\"bar\"}" })
     end
+
+    it "should process the exception data" do
+      exception = [ RuntimeError, "test" ]
+      @msg.process_extra_fields({ exception: exception })
+      expect(@msg.extra_fields).to eq({ "_exception_class" => "RuntimeError", "_exception_message" => "test" })
+    end
   end
 end
