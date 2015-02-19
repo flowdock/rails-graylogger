@@ -3,3 +3,4 @@
 pkg
 .yardoc
 test.log
+/Gemfile.lock
