@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/flowdock/rails-graylogger"
   s.summary     = "Push Rails logs also to Graylog2"
   s.description = s.summary
+  s.license     = "MIT"
 
   s.add_dependency 'gelf', '~> 1.4.0'
   s.add_dependency 'activesupport', '~> 4'
