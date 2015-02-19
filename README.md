@@ -1,6 +1,8 @@
 # rails-graylogger
 Rails logs to Graylog2
 
+[![Build Status](https://travis-ci.org/flowdock/rails-graylogger.svg)](https://travis-ci.org/flowdock/rails-graylogger)
+
 # Configuring Middleware
 Add the following to config/application.rb:
 
