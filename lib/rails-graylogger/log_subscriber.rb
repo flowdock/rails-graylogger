@@ -5,6 +5,7 @@ module RailsGraylogger
       payload = event.payload
       payload[:path] = URI(payload[:path]).path if payload[:path]
       payload[:ipaddress] = RequestStore.store[:ipaddress]
+      payload[:x_forwarded_for] = RequestStore.store[:x_forwarded_for]
       payload[:duration] = event.duration.round
       payload[:status] = status_from_exception(payload[:exception]) unless payload[:status].present?
 

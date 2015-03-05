@@ -9,6 +9,7 @@ module RailsGraylogger
       logger = Rails.logger
       request = Rack::Request.new(env)
       RequestStore.store[:ipaddress] = request.ip
+      RequestStore.store[:x_forwarded_for] = request.env["HTTP_X_FORWARDED_FOR"]
 
       status, headers, body = @app.call(env)
 
