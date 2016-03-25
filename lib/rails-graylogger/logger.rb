@@ -29,7 +29,7 @@ module RailsGraylogger
     private
 
     def method_missing(method, *args, &block)
-      if [:add, :info, :debug, :warn, :error, :fatal].include?(method) && !args[0].nil?
+      if [:info, :debug, :warn, :error, :fatal].include?(method) && !args[0].nil?
         if args.size == 1 && args[0].is_a?(String)
           hash = { short_message: args[0] }
         else
