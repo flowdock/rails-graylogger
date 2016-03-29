@@ -46,4 +46,8 @@ describe RailsGraylogger::Logger do
     expect(RailsGraylogger::Logger.request_buffer.size).to eq(1)
     expect(RailsGraylogger::Logger.request_buffer[0]).to eq({short_message: "Foobar"})
   end
+
+  it "shouldn't call GELF::Levels in method missing if the method is '#add'" do
+    expect{@logger.add(1, nil, 'foo')}.not_to raise_error
+  end
 end
